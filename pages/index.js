@@ -1,16 +1,18 @@
-import { Hero } from '@components/common';
-import { List } from '@components/course';
-import { Layout } from '@components/layout';
+import { Hero } from '@components/ui/common';
+import { List } from '@components/ui/course';
+import { Layout } from '@components/ui/layout';
 import { getAllCourses } from '@content/courses/fetcher';
 
 export default function Home({courses}) {
   return (
-    <Layout>
+    <>
       <Hero />
       <List courses={courses}/>
-    </Layout>
+    </>
   )
 }
+
+Home.Layout = Layout
 
 export function getStaticProps() {
   const { data } = getAllCourses()

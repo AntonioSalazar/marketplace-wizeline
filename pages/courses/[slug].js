@@ -1,11 +1,11 @@
-import { Curriculum, Keypoints, Hero } from "@components/course"
-import { Modal } from '@components/common'
-import { Layout } from "@components/layout";
+import { Curriculum, Keypoints, Hero } from "@components/ui/course"
+import { Modal } from '@components/ui/common'
+import { Layout } from "@components/ui/layout";
 import { getAllCourses } from "@content/courses/fetcher";
 
 const Course = ({course}) => {
   return (
-    <Layout>
+    <>
       <div className="py-4">
         <Hero 
             title={course.title}
@@ -20,9 +20,11 @@ const Course = ({course}) => {
             locked={true}
         />
         <Modal />
-    </Layout>
+    </>
   )
 }
+
+Course.Layout = Layout;
 
 export function getStaticPaths() {
     const {data} = getAllCourses();
